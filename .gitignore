@@ -1,0 +1,14 @@
+# Private planning and notes — kept local, never pushed to GitHub
+Planning Guide.md
+resume.md
+
+# macOS system files
+.DS_Store
+
+# Editor/IDE settings
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
