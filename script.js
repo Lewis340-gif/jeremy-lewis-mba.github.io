@@ -45,24 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(layer);
     });
 
-    // Contact Form Handling
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
-
-            // Simulate form submission
-            setTimeout(() => {
-                alert('Thank you for reaching out, Jeremy will be in touch soon!');
-                contactForm.reset();
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }, 1500);
-        });
-    }
 });

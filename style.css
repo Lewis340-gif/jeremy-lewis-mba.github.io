@@ -343,6 +343,33 @@ h3 {
     left: -1.5rem;
 }
 
+.accomplishments-panel p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.accomplishments-panel h3 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.accomplishments-panel a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.accomplishments-panel a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
 /* Quick Navigation Strip */
 .quick-nav {
     display: flex;
@@ -879,4 +906,85 @@ button:hover {
         width: 150px;
         height: 150px;
     }
+}
+
+/* Home Page New Sections */
+.homepage-info-section {
+    min-height: auto;
+    padding: 5rem 0;
+}
+
+.homepage-info-section .content-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.homepage-info-section h2,
+.timeline-header-container h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    color: var(--primary-color);
+}
+
+.homepage-info-section h2::after,
+.timeline-header-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-color);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
+
+.timeline-header-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Bullet Lists styling */
+.homepage-info-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.homepage-info-section li {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-left: 2rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.homepage-info-section li::before {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    top: 0.6em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.homepage-info-section li:hover {
+    color: var(--primary-color);
+}
+
+.homepage-info-section li:hover::before {
+    background-color: var(--secondary-color);
+}
+
+.homepage-info-section ul.grid-bullets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem 2rem;
 }
