@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Governance Challenge &amp; Leadership Alignment | Jeremy Lewis, MBA</title>
+    <meta name="description" content="Why enterprise AI governance is uniquely challenging, why multi-stakeholder coordination is required, and who should lead the AI Governance Committee.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ai-gov-style.css">
+</head>
+
+<body class="lifecycle-app">
+
+    <!-- Primary Site Nav -->
+    <nav class="site-nav non-sticky-nav">
+        <a href="index.html" class="site-nav-link">Home</a>
+        <a href="strategy-outcomes.html" class="site-nav-link">Strategy &amp; Outcomes</a>
+        <a href="healthcare-operations.html" class="site-nav-link">Healthcare Operations</a>
+        <a href="ai-governance.html" class="site-nav-link">AI Governance</a>
+        <a href="ai-gov-lifecycle.html" class="site-nav-link active">AI Gov Portal 🔒</a>
+    </nav>
+
+    <!-- Secondary Portal Subnav with Suite Switcher -->
+    <div class="portal-subnav">
+        <div class="portal-suite-tabs">
+            <a href="ai-governance.html" class="portal-suite-tab">
+                <span>← Portfolio Overview</span>
+            </a>
+            <a href="ai-gov-alignment.html" class="portal-suite-tab active">
+                <span>🎯 The Challenge &amp; Alignment</span>
+            </a>
+            <a href="ai-gov-lifecycle.html" class="portal-suite-tab">
+                <span>⚙️ 8-Stage Lifecycle Tool</span>
+            </a>
+        </div>
+        <div class="portal-nav-actions" style="display: flex; gap: 0.5rem; align-items: center;">
+            <button type="button" class="portal-action-btn edit-mode-toggle-btn" id="alignmentEditToggleBtn" onclick="toggleAlignmentEditMode()" title="Toggle Visual Content Editing Mode">
+                <span id="alignmentEditIcon">✏️</span>
+                <span id="alignmentEditText">Edit Content</span>
+            </button>
+            <button type="button" class="portal-action-btn" id="alignmentSaveTopBtn" onclick="saveAlignmentEdits()" style="display: none; font-weight: 700; background: rgb(56, 161, 105) !important; color: rgb(255, 255, 255) !important; border-color: rgb(47, 133, 90) !important;" title="Save all text changes to ai-gov-alignment.html">
+                <span>💾 Save to File</span>
+            </button>
+            <button type="button" class="portal-action-btn" onclick="logoutPortal()">
+                <span>🔒 Lock / Sign Out</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Executive Hero Banner -->
+    <header class="lifecycle-header">
+        <div class="lifecycle-header-container">
+            <span class="lifecycle-tag">Executive Advisory Perspective</span>
+            <h1>Why AI Governance Is Challenging: Orchestrating Alignment</h1>
+            <p class="lifecycle-subtitle">
+                Traditional IT governance governs static, deterministic software with periodic change control. 
+                Enterprise AI is probabilistic, continuously learning, and touches every organizational risk surface — from privacy and operations liability to cybersecurity and EBITDA. 
+                True governance is not about slowing innovation down; it is about synchronizing key players into an aligned operating rhythm.
+            </p>
+
+            <div class="lifecycle-meta-bar">
+                <div class="meta-item">
+                    <span>👥 Key Players:</span>
+                    <strong>9 Stakeholder Groups</strong>
+                </div>
+                <div class="meta-item">
+                    <span>⚡ Core Friction:</span>
+                    <strong>Velocity vs. Safety vs. Liability</strong>
+                </div>
+                <div class="meta-item">
+                    <span>🏛️ Committee Model:</span>
+                    <strong>Executive Co-Chair Dyad</strong>
+                </div>
+                <div class="meta-item">
+                    <span>🛡️ Oversight Gates:</span>
+                    <strong>5 Synchronized Stage-Gates</strong>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="alignment-page-container">
+
+        <!-- Section 1: The Multi-Disciplinary Friction Point -->
+        <section class="alignment-section">
+            <div class="alignment-section-header">
+                <span class="alignment-pill-tag">The Stakeholder Dilemma</span>
+                <h2 class="alignment-section-title">Why AI Governance Is So Difficult: The 9 Key Players</h2>
+                <p class="alignment-section-desc">
+                    AI governance does not fail because people lack good intentions. It fails because each critical department has a completely valid, yet fundamentally conflicting primary incentive. Without an orchestrating mechanism, these priorities collide.
+                </p>
+            </div>
+
+            <div class="stakeholder-grid">
+
+                <!-- 1. Board of Directors & C-Suite -->
+                <div class="stakeholder-card role-board">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">🏛️</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Board of Directors &amp; C-Suite</h3>
+                            <span class="stakeholder-role-badge"></span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Drive strategic market differentiation, maximize long-term enterprise value, protect brand equity, and uphold fiduciary risk oversight.
+                    </div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"How do we capture competitive AI productivity and EBITDA growth without exposing our organization to front-page reputational damage, regulatory sanctions, or fiduciary lawsuits?"</em>
+                    </div>
+                </div>
+
+                <!-- 2. Finance -->
+                <div class="stakeholder-card role-finance">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">💰</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Finance &amp; Procurement</h3>
+                            <span class="stakeholder-role-badge"></span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Defensible ROI, predictable CapEx/OpEx, inference compute cost governance, contract negotiation, and prevention of shelfware.
+                    </div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"We are spending thousands per month on token consumption and GPU cloud compute. Where is the audited hard-dollar EBITDA contribution or verified FTE capacity gain?"</em>
+                    </div>
+                </div>
+
+                <!-- 3. Legal and Privacy -->
+                <div class="stakeholder-card role-legal">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">⚖️</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Legal and Privacy</h3>
+                            <span class="stakeholder-role-badge"></span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Zero corporate liability, strict HIPAA / PHI shielding, confidential data protection, copyright indemnity, vendor breach prevention, and contractual protection.
+                    </div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"If an LLM hallucinates or incorporates proprietary or customer records into training cache, our organization faces uncapped statutory fines and class-action exposure. We cannot approve until liability is zero."</em>
+                    </div>
+                </div>
+
+                <!-- 4. Compliance and Risk Officers -->
+                <div class="stakeholder-card role-compliance">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">📜</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Compliance and Risk Officers</h3>
+                            <span class="stakeholder-role-badge"></span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Adhere to external frameworks to systematically manage audit algorithmic fairness, maintain documented data provenance, ensure our workforce sufficiently equipped to make informed decisions when using AI.</div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"Where is the bias impact assessment across protected demographic sub-cohorts? If regulators or external auditors inspect us tomorrow, do we have an immutable audit trail of how this decision was generated?"</em>
+                    </div>
+                </div>
+
+                <!-- 5. Business Operations -->
+                <div class="stakeholder-card role-ops">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">⚙️</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Business Operations</h3>
+                            <span class="stakeholder-role-badge"></span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Relieve operational bottlenecks, expand organizational capacity, reduce manual cycle times, streamline workflows, and accelerate business delivery throughput.
+                    </div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"Our teams are overwhelmed with backlogs and manual work right now. Why is Legal and IT forcing us into a 9-month review for a tool that can save 40% of our workflow time today?"</em>
+                    </div>
+                </div>
+
+                <!-- 6. Human Resources / People Services -->
+                <div class="stakeholder-card role-hr">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">🧑‍💼</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Human Resources / People Services</h3>
+                            <span class="stakeholder-role-badge">CHRO, Chief People Officer, Talent Enablement</span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Manage workforce transitions, foster enterprise AI literacy and psychological safety, define ethical labor use policies, and minimize workforce displacement anxiety.
+                    </div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"Our employees fear their jobs will be automated away or performance evaluated by black-box algorithms. How do we reskill our talent and protect employee trust when leadership demands aggressive AI-driven headcount efficiencies?"</em>
+                    </div>
+                </div>
+
+                <!-- 7. Customers, Patients, and Partners -->
+                <div class="stakeholder-card role-frontline">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">👥</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Customers, Patients, and Partners</h3>
+                            <span class="stakeholder-role-badge"></span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Deliver intuitive, safe tools that augment human capabilities, preserve human agency, maintain trust, protect job dignity, and create friction-free collaboration.
+                    </div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"If this AI system feels like an unexplained black box that adds more clicks, unverified alerts, and cognitive friction to our workflow, we will reject it, bypass it, or turn it off."</em>
+                    </div>
+                </div>
+
+                <!-- 8. Information Technology and AI Engineering -->
+                <div class="stakeholder-card role-tech">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">💻</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Information Technology and AI Engineering</h3>
+                            <span class="stakeholder-role-badge">CIO, Chief Data Scientist, ML Engineers, SRE</span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Build scalable pipelines, achieve benchmark accuracy (F1, AUC, perplexity), minimize latency, ensure system uptime, and deploy modern capabilities.
+                    </div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"Our validation benchmark reached 94% test accuracy. Why is the committee demanding explainability logs for internal latent dimensions when commercial APIs don't even provide them?"</em>
+                    </div>
+                </div>
+
+                <!-- 9. Cybersecurity and CISO -->
+                <div class="stakeholder-card role-cyber">
+                    <div class="stakeholder-card-header">
+                        <div class="stakeholder-icon">🛡️</div>
+                        <div class="stakeholder-title-wrap">
+                            <h3>Cybersecurity and CISO</h3>
+                            <span class="stakeholder-role-badge">CISO, Threat Intel, SecOps Engineers</span>
+                        </div>
+                    </div>
+                    <div class="stakeholder-mandate">
+                        <strong>Primary Mandate</strong>
+                        Defend the enterprise perimeter, mitigate prompt injection, prevent model extraction, stop shadow AI, and secure API credentials.
+                    </div>
+                    <div class="stakeholder-tension">
+                        <strong>Core Tension &amp; Friction</strong>
+                        <em>"Every external AI API endpoint and untrusted conversational prompt is an uncontrolled vector for data exfiltration and credential hijacking. Everything must be locked in private VPCs."</em>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 2: Why Coordinated Alignment Is Mandatory -->
+        <section class="alignment-section">
+            <div class="alignment-section-header">
+                <span class="alignment-pill-tag">Systemic Coordination</span>
+                <h2 class="alignment-section-title">The Cost of Misalignment: Two Fatal Extremes</h2>
+                <p class="alignment-section-desc">
+                    When organizations lack a structured, multi-disciplinary governance cadence, they inevitably lurch into one of two damaging organizational extremes:
+                </p>
+            </div>
+
+            <div class="failure-modes-grid">
+                <!-- Extreme 1 -->
+                <div class="failure-card">
+                    <div class="failure-card-badge">⚠️ Failure Mode 1</div>
+                    <h3>The "Shadow AI" Wild West</h3>
+                    <p>
+                        When official governance channels are perceived as slow, opaque, or overly restrictive, departments stop asking for permission. Business units subscribe to third-party consumer tools and embed AI directly into spreadsheets.
+                    </p>
+                    <ul>
+                        <li><strong>Catastrophic Data Leakage:</strong> Proprietary clinical and financial data ingested into commercial model training sets.</li>
+                        <li><strong>Regulatory Penalties:</strong> Total violation of HIPAA, FDA SaMD, and state privacy mandates.</li>
+                        <li><strong>Unmanaged Hallucinations:</strong> Unchecked models generating inaccurate clinical summaries or faulty billing codes without human-in-the-loop audit.</li>
+                    </ul>
+                </div>
+
+                <!-- Extreme 2 -->
+                <div class="failure-card warning-amber">
+                    <div class="failure-card-badge">🛑 Failure Mode 2</div>
+                    <h3>Governance Paralysis &amp; Stagnation</h3>
+                    <p>
+                        When governance operates as disconnected sequential silos, projects bounce between Legal, IT, and Compliance inboxes for quarters without resolution. Every department has veto power, but none has accountability to ship.
+                    </p>
+                    <ul>
+                        <li><strong>Competitive Disadvantage:</strong> Competitors adopt clinical co-pilots and capture market share while your team debates hypothetical risks.</li>
+                        <li><strong>Frustrated Talent:</strong> World-class data scientists and clinicians resign due to inability to deploy meaningful innovations.</li>
+                        <li><strong>Inflated Sunk Costs:</strong> High software licensing fees paid for months while tools sit idle in validation limbo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- The Coordinated Solution -->
+            <div class="coordination-solution-banner">
+                <h3>The Solution: Synchronized Stage-Gate Coordination</h3>
+                <p>
+                    AI Governance must function as an <strong>orchestrated operating cadence</strong> rather than an arbitrary gatekeeper. 
+                    By replacing sequential handoffs with synchronized stage-gates, Legal, Security, Clinical, and Engineering review standardized evidence <em>simultaneously</em> at defined milestones.
+                </p>
+
+                <div class="solution-features-row">
+                    <div class="solution-feature-box">
+                        <strong><span>📋</span> Standardized Evidence</strong>
+                        <span>Every team knows upfront what deliverables are required before crossing each of the 5 Committee Gates.</span>
+                    </div>
+                    <div class="solution-feature-box">
+                        <strong><span>⏱️</span> Concurrent Vetting</strong>
+                        <span>Vetting and validations occur in parallel during Phase 4 and Phase 5 rather than sequentially.</span>
+                    </div>
+                    <div class="solution-feature-box">
+                        <strong><span>⚖️</span> Balanced Risk-Reward</strong>
+                        <span>Risk mitigations are calibrated against operational value, ensuring safety without killing velocity.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Committee Leadership Recommendations -->
+        <section class="alignment-section">
+            <div class="alignment-section-header">
+                <span class="alignment-pill-tag">Governance Architecture</span>
+                <h2 class="alignment-section-title">Who Should Lead the AI Governance Committee?</h2>
+                <p class="alignment-section-desc">
+                    The single most critical structural decision an enterprise makes is establishing who leads the AI Governance Committee. Single-department leadership models consistently fail.
+                </p>
+            </div>
+
+            <div class="leadership-dyad-container">
+                <div style="text-align: center; max-width: 750px; margin: 0 auto 2.5rem;">
+                    <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-color);">The Executive Dyad Model</span>
+                    <h3 style="font-size: 1.8rem; color: var(--primary-color); margin: 0.5rem 0;">The Co-Chair Governance Framework</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        Based on successful Fortune 500 healthcare deployments, the optimal AI Governance Committee is chaired by an <strong>Executive Dyad</strong> representing both Operational Reality and Technical Execution.
+                    </p>
+                </div>
+
+                <div class="dyad-chairs-grid">
+                    <!-- Co-Chair 1 -->
+                    <div class="dyad-chair-card clinical">
+                        <span class="dyad-role-pill">Executive Co-Chair 1</span>
+                        <h4>Operations Executive or Chief Medical Officer</h4>
+                        <p>
+                            <strong>The Voice of Safety &amp; Mission Impact:</strong>
+                            Ensures every AI initiative is grounded in real-world clinical safety, patient care efficacy, workforce adoption, and business outcomes.
+                        </p>
+                        <ul>
+                            <li>Vets operational validity and ethical implications of use cases.</li>
+                            <li>Ensures users will actually adopt and trust the workflow.</li>
+                            <li>Protects the human-in-the-loop decision boundary.</li>
+                            <li>Accountable to remove barriers and escalation of issues.&nbsp;&nbsp;</li>
+                        </ul>
+                    </div>
+
+                    <!-- Co-Chair 2 -->
+                    <div class="dyad-chair-card technical">
+                        <span class="dyad-role-pill">Executive Co-Chair 2</span>
+                        <h4>CAO, CIO, or CTO</h4>
+                        <p>
+                            <strong>The Voice of Engineering &amp; Execution:</strong>
+                            Bridges complex machine learning mechanics, data pipelines, infrastructure scalability, and agile delivery velocity.
+                        </p>
+                        <ul>
+                            <li>Translates algorithmic nuances and drift metrics into plain executive language.</li>
+                            <li>Coordinates cross-functional technical teams (Data Science, MLOps, Cyber).</li>
+                            <li>Enforces the 8-stage operational lifecycle across all project teams.</li>
+                            <li>Holds technical teams accountable to schedule, budget, and deliverable quality.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Standing Committee Members -->
+                <div class="standing-officers-box">
+                    <h4><span>🛡️</span> Standing Committee Members: Cross-Functional Governance Coalition</h4>
+                    <p style="color: #4a5568; font-size: 0.95rem; margin: 0;">
+                        The Executive Co-Chairs are supported by standing committee members representing critical cross-functional disciplines across the enterprise:
+                    </p>
+
+                    <div class="standing-officers-list">
+                        <div class="officer-item">
+                            <strong>⚖️ Chief Privacy Officer &amp; Legal Counsel</strong>
+                            <span>Regulatory shield, HIPAA compliance, PHI containment, and contractual indemnity.</span>
+                        </div>
+                        <div class="officer-item">
+                            <strong>🛡️ Chief Information Security Officer (CISO)</strong>
+                            <span>Threat modeling, prompt injection defense, model extraction prevention, and SecOps.</span>
+                        </div>
+                        <div class="officer-item">
+                            <strong>📜 Chief Compliance Officer</strong>
+                            <span>NIST AI RMF / ISO 42001 alignment, algorithmic bias audits, and federal audit readiness.</span>
+                        </div>
+                        <div class="officer-item">
+                            <strong>💰 Finance &amp; FinOps</strong>
+                            <span>Inference compute cost governance, ROI modeling, OpEx forecasting, and EBITDA value realization.</span>
+                        </div>
+                        <div class="officer-item">
+                            <strong>🤝 Vendor Relations &amp; Procurement</strong>
+                            <span>Strategic AI vendor vetting, enterprise SLA guarantees, software licensing negotiations, and supply chain risk.</span>
+                        </div>
+                        <div class="officer-item">
+                            <strong>🩺 Medical &amp; Clinical Leadership</strong>
+                            <span>Patient safety assurance, clinical efficacy standards, diagnostic risk boundaries, and physician advisory input.</span>
+                        </div>
+                        <div class="officer-item">
+                            <strong>👥 Human Resources &amp; Change Management</strong>
+                            <span>Workforce enablement, AI literacy training, organizational change management, and labor policy impact.</span>
+                        </div>
+                        <div class="officer-item">
+                            <strong>🧠 AI Engineering &amp; Data Science</strong>
+                            <span>Model architecture, benchmark accuracy, inference latency, drift detection, and pipeline scalability.</span>
+                        </div>
+                        <div class="officer-item">
+                            <strong>🚀 Product Management</strong>
+                            <span>Use case roadmapping, frontline workflow integration, user experience (UX) adoption, and value delivery.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Operational Next Steps -->
+        <section class="alignment-section" style="margin-bottom: 2rem;">
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1.5rem; padding: 3rem 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
+                <span class="alignment-pill-tag">Operationalize Governance</span>
+                <h2 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">Explore the Complete Governance Architecture</h2>
+                <p style="max-width: 700px; margin: 0 auto 2rem; color: #4a5568; font-size: 1.05rem; line-height: 1.6;">
+                    Inspect the interactive 8-stage lifecycle with real-time maturity scoring, committee review gates, operational deliverables, and custom Statement of Work generation.
+                </p>
+
+                <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="ai-gov-lifecycle.html" style="background: #FFD700; color: #1a365d; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1rem; padding: 1rem 1.75rem; border-radius: 2rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s ease;">
+                        <span>⚙️ Interactive 8-Stage Lifecycle Tool</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="sp-footer">
+        <p>© 2026 Jeremy Lewis, MBA. All rights reserved.</p>
+    </footer>
+
+    <!-- In-Page Visual Edit Floating Action Bar -->
+    <div class="edit-mode-floating-bar" id="editFloatingBar" style="display: none;">
+        <div class="edit-bar-status">
+            <span class="edit-pulse-dot"></span>
+            <span id="editStatusMessage">💾 Saving changes to ai-gov-alignment.html...</span>
+        </div>
+        <div class="edit-bar-actions">
+            <button type="button" class="edit-bar-btn btn-save" onclick="saveAlignmentEdits()" title="Save all text changes to ai-gov-alignment.html" disabled="">
+                <span>💾 Save to File</span>
+            </button>
+            <button type="button" class="edit-bar-btn btn-lock" onclick="lockEditorAccess()" title="Lock Editor (Require password again)">
+                <span>🔒 Lock Editor</span>
+            </button>
+            <button type="button" class="edit-bar-btn btn-discard" onclick="toggleAlignmentEditMode()" title="Exit Edit Mode">
+                <span>✕ Exit Edit Mode</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Save Notification Toast -->
+    <div class="edit-save-toast" id="editSaveToast">
+        <span>✓</span>
+        <span id="editSaveToastText">✓ Saved successfully to ai-gov-alignment.html!</span>
+    </div>
+
+    <script src="ai-gov.js"></script>
+    <script>
+        // Visual Edit Mode for Alignment & Leadership Strategy Page
+        let isAlignmentEditActive = false;
+
+        const EDITABLE_SELECTORS = [
+            '.lifecycle-header .lifecycle-tag',
+            '.lifecycle-header h1',
+            '.lifecycle-header .lifecycle-subtitle',
+            '.lifecycle-header .meta-item strong',
+            '.lifecycle-header .meta-item span',
+            '.alignment-page-container .alignment-pill-tag',
+            '.alignment-page-container .alignment-section-title',
+            '.alignment-page-container .alignment-section-desc',
+            '.alignment-page-container .stakeholder-icon',
+            '.alignment-page-container .stakeholder-title-wrap h3',
+            '.alignment-page-container .stakeholder-role-badge',
+            '.alignment-page-container .stakeholder-mandate',
+            '.alignment-page-container .stakeholder-tension',
+            '.alignment-page-container .failure-card-badge',
+            '.alignment-page-container .failure-card h3',
+            '.alignment-page-container .failure-card p',
+            '.alignment-page-container .failure-card ul li',
+            '.alignment-page-container .coordination-solution-banner h3',
+            '.alignment-page-container .coordination-solution-banner p',
+            '.alignment-page-container .solution-feature-box strong',
+            '.alignment-page-container .solution-feature-box span',
+            '.alignment-page-container .leadership-dyad-container h3',
+            '.alignment-page-container .leadership-dyad-container p',
+            '.alignment-page-container .leadership-dyad-container span',
+            '.alignment-page-container .dyad-role-pill',
+            '.alignment-page-container .dyad-chair-card h4',
+            '.alignment-page-container .dyad-chair-card p',
+            '.alignment-page-container .dyad-chair-card ul li',
+            '.alignment-page-container .standing-officers-box h4',
+            '.alignment-page-container .standing-officers-box p',
+            '.alignment-page-container .officer-item strong',
+            '.alignment-page-container .officer-item span',
+            '.alignment-page-container section h2',
+            '.alignment-page-container section p'
+        ];
+
+        function toggleAlignmentEditMode() {
+            if (!isAlignmentEditActive) {
+                if (typeof isEditorAuthenticated === 'function' && !isEditorAuthenticated()) {
+                    promptEditorAuth(() => toggleAlignmentEditMode());
+                    return;
+                }
+            }
+            isAlignmentEditActive = !isAlignmentEditActive;
+            const btn = document.getElementById('alignmentEditToggleBtn');
+            const icon = document.getElementById('alignmentEditIcon');
+            const text = document.getElementById('alignmentEditText');
+            const topSaveBtn = document.getElementById('alignmentSaveTopBtn');
+            const bar = document.getElementById('editFloatingBar');
+
+            if (isAlignmentEditActive) {
+                document.body.classList.add('edit-mode-active');
+                if (btn) btn.classList.add('active');
+                if (icon) icon.textContent = '👁️';
+                if (text) text.textContent = 'Exit Edit Mode';
+                if (topSaveBtn) topSaveBtn.style.display = 'inline-flex';
+                if (bar) bar.style.display = 'flex';
+
+                // Enable contenteditable on target elements
+                document.querySelectorAll(EDITABLE_SELECTORS.join(', ')).forEach(el => {
+                    el.setAttribute('contenteditable', 'true');
+                    el.setAttribute('spellcheck', 'false');
+                });
+
+                attachListAddButtons();
+                showAlignmentToast('✏️ Edit Mode ON: Click any text to edit, hit Enter on bullets to add items, or Ctrl+S to save.');
+            } else {
+                document.body.classList.remove('edit-mode-active');
+                if (btn) btn.classList.remove('active');
+                if (icon) icon.textContent = '✏️';
+                if (text) text.textContent = 'Edit Content';
+                if (topSaveBtn) topSaveBtn.style.display = 'none';
+                if (bar) bar.style.display = 'none';
+
+                // Disable contenteditable
+                document.querySelectorAll('[contenteditable]').forEach(el => {
+                    el.removeAttribute('contenteditable');
+                    el.removeAttribute('spellcheck');
+                });
+
+                removeListAddButtons();
+            }
+        }
+
+        function attachListAddButtons() {
+            document.querySelectorAll('.alignment-page-container ul').forEach(ul => {
+                if (!ul.nextElementSibling || !ul.nextElementSibling.classList.contains('alignment-edit-helper')) {
+                    const addBtn = document.createElement('button');
+                    addBtn.type = 'button';
+                    addBtn.className = 'add-bullet-action-btn alignment-edit-helper';
+                    addBtn.innerHTML = '<span>➕ Add Bullet Point</span>';
+                    addBtn.title = 'Add a new bullet point to this list';
+                    addBtn.onclick = () => {
+                        const newLi = document.createElement('li');
+                        newLi.setAttribute('contenteditable', 'true');
+                        newLi.setAttribute('spellcheck', 'false');
+                        newLi.innerHTML = '<strong>New Item:</strong> Description of impact or action item...';
+                        ul.appendChild(newLi);
+                        newLi.focus();
+                        const range = document.createRange();
+                        range.selectNodeContents(newLi);
+                        const sel = window.getSelection();
+                        if (sel) {
+                            sel.removeAllRanges();
+                            sel.addRange(range);
+                        }
+                        showAlignmentToast('➕ Bullet point added! Click to edit or hit Enter for another.');
+                    };
+                    ul.parentNode.insertBefore(addBtn, ul.nextSibling);
+                }
+            });
+        }
+
+        function removeListAddButtons() {
+            document.querySelectorAll('.alignment-edit-helper').forEach(el => el.remove());
+        }
+
+        // Global Keyboard Shortcut: Ctrl+S / Cmd+S & Enter on LI
+        document.addEventListener('keydown', (e) => {
+            if (!isAlignmentEditActive) return;
+
+            // Save shortcut
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+                e.preventDefault();
+                saveAlignmentEdits();
+                return;
+            }
+
+            // Enter on bullet list items
+            if (e.target && e.target.tagName === 'LI' && e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                const newLi = document.createElement('li');
+                newLi.setAttribute('contenteditable', 'true');
+                newLi.setAttribute('spellcheck', 'false');
+                newLi.innerHTML = '<strong>New Item:</strong> Description of action or impact...';
+
+                if (e.target.nextSibling) {
+                    e.target.parentNode.insertBefore(newLi, e.target.nextSibling);
+                } else {
+                    e.target.parentNode.appendChild(newLi);
+                }
+
+                newLi.focus();
+                const range = document.createRange();
+                range.selectNodeContents(newLi);
+                const sel = window.getSelection();
+                if (sel) {
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+                showAlignmentToast('➕ Bullet point added! Press Enter for another or Ctrl+S to save.');
+            }
+
+            // Backspace on empty bullet list item
+            if (e.target && e.target.tagName === 'LI' && e.key === 'Backspace') {
+                if (e.target.textContent.trim() === '') {
+                    e.preventDefault();
+                    const prev = e.target.previousElementSibling;
+                    const parent = e.target.parentNode;
+                    if (parent && parent.children.length > 1) {
+                        e.target.remove();
+                        if (prev) {
+                            prev.focus();
+                            const range = document.createRange();
+                            range.selectNodeContents(prev);
+                            range.collapse(false);
+                            const sel = window.getSelection();
+                            if (sel) {
+                                sel.removeAllRanges();
+                                sel.addRange(range);
+                            }
+                        }
+                        showAlignmentToast('🗑️ Empty bullet point removed.');
+                    }
+                }
+            }
+        });
+
+        async function saveAlignmentEdits() {
+            if (typeof isEditorAuthenticated === 'function' && !isEditorAuthenticated()) {
+                showAlignmentToast('🔒 Editor authorization required to save.');
+                promptEditorAuth(() => saveAlignmentEdits());
+                return;
+            }
+
+            const statusMsg = document.getElementById('editStatusMessage');
+            const saveFloatingBtn = document.querySelector('.edit-bar-btn.btn-save');
+            const saveTopBtn = document.getElementById('alignmentSaveTopBtn');
+
+            if (statusMsg) statusMsg.textContent = '💾 Saving changes to ai-gov-alignment.html...';
+            if (saveFloatingBtn) saveFloatingBtn.disabled = true;
+            if (saveTopBtn) saveTopBtn.disabled = true;
+
+            try {
+                // Clone the entire document element
+                const docClone = document.documentElement.cloneNode(true);
+
+                // Strip all edit-mode classes and attributes from clone
+                docClone.classList.remove('edit-mode-active');
+                const bodyClone = docClone.querySelector('body');
+                if (bodyClone) bodyClone.classList.remove('edit-mode-active');
+
+                // Remove contenteditable and spellcheck
+                docClone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+                docClone.querySelectorAll('[spellcheck]').forEach(el => el.removeAttribute('spellcheck'));
+
+                // Remove dynamic edit helper buttons
+                docClone.querySelectorAll('.alignment-edit-helper').forEach(el => el.remove());
+
+                // Reset floating bar display and state
+                const cloneBar = docClone.querySelector('#editFloatingBar');
+                if (cloneBar) {
+                    cloneBar.style.display = 'none';
+                    const cloneStatus = cloneBar.querySelector('#editStatusMessage');
+                    if (cloneStatus) cloneStatus.textContent = '✏️ Visual Edit Mode — Click any headline, card, or bullet to edit';
+                    const cloneSaveBtn = cloneBar.querySelector('.edit-bar-btn.btn-save');
+                    if (cloneSaveBtn) cloneSaveBtn.removeAttribute('disabled');
+                }
+
+                // Reset top action buttons
+                const cloneTopSave = docClone.querySelector('#alignmentSaveTopBtn');
+                if (cloneTopSave) {
+                    cloneTopSave.style.display = 'none';
+                    cloneTopSave.removeAttribute('disabled');
+                }
+
+                const cloneToggleBtn = docClone.querySelector('#alignmentEditToggleBtn');
+                if (cloneToggleBtn) {
+                    cloneToggleBtn.classList.remove('active');
+                    const icon = cloneToggleBtn.querySelector('#alignmentEditIcon');
+                    if (icon) icon.textContent = '✏️';
+                    const text = cloneToggleBtn.querySelector('#alignmentEditText');
+                    if (text) text.textContent = 'Edit Content';
+                }
+
+                // Reset toast state
+                const cloneToast = docClone.querySelector('#editSaveToast');
+                if (cloneToast) cloneToast.classList.remove('show');
+
+                // Generate clean serialized HTML
+                const cleanHtml = '<!DOCTYPE html>\n' + docClone.outerHTML;
+
+                const response = await fetch('/api/save-page', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Editor-Auth': sessionStorage.getItem('ai_gov_editor_unlocked') || ''
+                    },
+                    body: JSON.stringify({
+                        page: 'ai-gov-alignment.html',
+                        html: cleanHtml
+                    })
+                });
+
+                if (!response.ok) {
+                    const errJson = await response.json().catch(() => ({}));
+                    throw new Error(errJson.error || `Server returned HTTP ${response.status}`);
+                }
+
+                showAlignmentToast('✓ Saved successfully to ai-gov-alignment.html!');
+                if (statusMsg) statusMsg.textContent = '✓ Saved! Click any text to keep editing or press Ctrl+S to save';
+            } catch (err) {
+                console.error('Failed to save alignment page:', err);
+                showAlignmentToast('⚠️ Save failed: ' + err.message);
+                if (statusMsg) statusMsg.textContent = '⚠️ Error saving: ' + err.message;
+            } finally {
+                if (saveFloatingBtn) saveFloatingBtn.disabled = false;
+                if (saveTopBtn) saveTopBtn.disabled = false;
+            }
+        }
+
+        function showAlignmentToast(msg) {
+            const toast = document.getElementById('editSaveToast');
+            const text = document.getElementById('editSaveToastText');
+            if (toast && text) {
+                text.textContent = msg;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3500);
+            }
+        }
+    </script>
+
+
+
+
+
+    <div class="editor-auth-modal-overlay" id="editorAuthModalOverlay" role="dialog" aria-modal="true" aria-labelledby="editorAuthTitle">
+        <div class="editor-auth-modal-card">
+            <div class="editor-auth-header">
+                <h3 id="editorAuthTitle">🔒 Editor Authorization</h3>
+                <button type="button" class="close-modal-btn" onclick="closeEditorAuthModal()" aria-label="Close dialog">✕</button>
+            </div>
+            <form id="editorAuthForm" class="editor-auth-body" onsubmit="return false;">
+                <p class="editor-auth-desc">
+                    This capability allows live modification of framework content. Please enter the <strong>Editor Access Password</strong> to unlock editing capabilities.
+                </p>
+                <div class="editor-auth-input-group">
+                    <input type="password" id="editorAuthPasswordInput" class="editor-auth-input" placeholder="Enter editor password..." autocomplete="current-password" required="">
+                    <button type="button" class="editor-auth-eye-btn" onclick="toggleEditorPasswordVisibility()" title="Toggle visibility">
+                        <span id="editorAuthEyeIcon">👁️</span>
+                    </button>
+                </div>
+                <div class="editor-auth-error" id="editorAuthError" style="display: none;"></div>
+                <div class="editor-auth-footer">
+                    <button type="button" class="editor-auth-cancel-btn" onclick="closeEditorAuthModal()">Cancel</button>
+                    <button type="submit" class="editor-auth-submit-btn" id="editorAuthSubmitBtn">
+                        <span>🔓 Unlock Editor</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div></body></html>

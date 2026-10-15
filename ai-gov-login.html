@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Governance Lifecycle Portal | Jeremy Lewis, MBA</title>
+    <meta name="description"
+        content="Confidential AI Governance Lifecycle Design Guide & Maturity Assessment by Jeremy Lewis, MBA.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ai-gov-style.css">
+</head>
+
+<body class="login-page-body">
+
+    <!-- Top Bar Navigation -->
+    <nav class="site-nav">
+        <a href="index.html" class="site-nav-link">Home</a>
+        <a href="strategy-outcomes.html" class="site-nav-link">Strategy &amp; Outcomes</a>
+        <a href="healthcare-operations.html" class="site-nav-link">Healthcare Operations</a>
+        <a href="ai-governance.html" class="site-nav-link active">AI Governance</a>
+    </nav>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-badge">
+                <span class="lock-icon">🔒</span>
+                <span>Executive Client Portal</span>
+            </div>
+
+            <h1>AI Governance Lifecycle<br><span class="login-title-sub">Interactive Design Guide &amp; SOW Builder</span></h1>
+            
+            <p class="login-description">
+                This interactive tool maps the end-to-end AI governance lifecycle, outlines key deliverables for each stage, and includes a self-assessment to benchmark your maturity.
+            </p>
+
+            <form id="loginForm" class="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="passwordInput">Client Access Password</label>
+                    <div class="password-input-group">
+                        <input type="password" id="passwordInput" placeholder="Enter access password" autocomplete="current-password" required autofocus>
+                        <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()" aria-label="Toggle password visibility">
+                            <span id="pwdEyeIcon">👁️</span>
+                        </button>
+                    </div>
+                    <div id="loginError" class="login-error-msg" role="alert" style="display: none;"></div>
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span>Unlock Governance Lifecycle</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </form>
+
+            <div class="login-hint-box">
+                <div class="hint-header">
+                    <span class="hint-icon">💡</span>
+                    <span class="hint-title">Access Information</span>
+                </div>
+                <p>For prospective employers and clients reviewing this portfolio, use access code: <code>Governance2026</code> or <code>AIGov</code>.</p>
+            </div>
+
+            <div class="login-footer">
+                <a href="ai-governance.html" class="return-link">← Return to AI Governance Overview</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sp-footer">
+        <p>&copy; 2026 Jeremy Lewis, MBA. All rights reserved.</p>
+    </footer>
+
+    <script src="ai-gov.js"></script>
+    <script>
+        // If user is already authenticated in this session, provide quick jump
+        if (sessionStorage.getItem('ai_gov_auth') === 'granted') {
+            const hintBox = document.querySelector('.login-hint-box');
+            if (hintBox) {
+                hintBox.innerHTML += '<div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid #e2e8f0; color:#2f855a; font-weight:600;">✓ You are already authenticated in this session. <a href="ai-gov-lifecycle.html" style="color:#1a365d; text-decoration:underline; margin-left:0.5rem;">Proceed directly to Lifecycle →</a></div>';
+            }
+        }
+    </script>
+</body>
+
+</html>

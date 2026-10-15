@@ -12,3 +12,8 @@ resume.md
 # Temporary files
 *.tmp
 *.log
+*.bak
+
+# Python
+__pycache__/
+*.py[cod]

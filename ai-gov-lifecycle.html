@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Governance Lifecycle Design Guide | Executive Advisory</title>
+    <meta name="description"
+        content="Interactive AI Governance Lifecycle Design Guide and SOW Builder. Comprehensive workflow covering proposal capture, committee gates, pilot design, and continuous monitoring.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ai-gov-style.css">
+</head>
+
+<body class="lifecycle-app" id="lifecycleAppRoot">
+
+    <!-- Primary Site Nav -->
+    <nav class="site-nav non-sticky-nav">
+        <a href="index.html" class="site-nav-link">Home</a>
+        <a href="strategy-outcomes.html" class="site-nav-link">Strategy &amp; Outcomes</a>
+        <a href="healthcare-operations.html" class="site-nav-link">Healthcare Operations</a>
+        <a href="ai-governance.html" class="site-nav-link">AI Governance</a>
+        <a href="ai-gov-lifecycle.html" class="site-nav-link active">AI Gov Portal 🔒</a>
+    </nav>
+
+    <!-- Secondary Portal Subnav -->
+    <div class="portal-subnav">
+        <div class="portal-suite-tabs">
+            <a href="ai-governance.html" class="portal-suite-tab">
+                <span>← Portfolio Overview</span>
+            </a>
+            <a href="ai-gov-alignment.html" class="portal-suite-tab">
+                <span>🎯 The Challenge &amp; Alignment</span>
+            </a>
+            <a href="ai-gov-lifecycle.html" class="portal-suite-tab active">
+                <span>⚙️ 8-Stage Lifecycle Tool</span>
+            </a>
+        </div>
+        <div class="portal-nav-actions">
+            <button type="button" class="portal-action-btn" onclick="logoutPortal()">
+                <span>🔒 Lock / Sign Out</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Executive Hero Banner -->
+    <header class="lifecycle-header">
+        <div class="lifecycle-header-container">
+            <span class="lifecycle-tag">Interactive Advisory Framework</span>
+            <h1>Enterprise AI Governance Lifecycle</h1>
+            <p class="lifecycle-subtitle">
+                A structured, repeatable operational methodology for enterprise leadership. 
+                This framework breaks complex AI operations into distinct stage-gates, validates technical and clinical trust, 
+                benchmarks organizational maturity, and translates operational needs into an actionable Statement of Work.
+            </p>
+
+            <div class="lifecycle-meta-bar">
+                <div class="meta-item">
+                    <span>📌 Phases:</span>
+                    <strong>8 Full-Cycle Stages</strong>
+                </div>
+                <div class="meta-item">
+                    <span>🛡️ Oversight:</span>
+                    <strong>5 Committee Review Gates</strong>
+                </div>
+                <div class="meta-item">
+                    <span>📋 Operations:</span>
+                    <strong id="totalSubstepsHeadlineCount">46 Discrete Substeps &amp; Deliverables</strong>
+                </div>
+                <div class="meta-item">
+                    <span>📄 Tooling:</span>
+                    <strong>Dynamic SOW Generator</strong>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Chevron Stepper & Quick Action Ribbon (Locked at top during scroll) -->
+    <section class="sticky-stepper-header" id="stickyStepperHeader">
+        <div class="sticky-stepper-inner">
+            <div class="stepper-action-toolbar">
+                <div class="toolbar-left">
+                    <span class="toolbar-title">AI Lifecycle</span>
+                    <span class="stepper-hint">Click any chevron to inspect tasks, deliverables, and governance gates</span>
+                </div>
+
+                <div class="quick-actions-group">
+                    <div class="quick-btn" style="background:#edf2f7; cursor:default;" title="Organizational Governance Maturity Score">
+                        <span>Avg Maturity:</span>
+                        <strong id="overallMaturityScoreBadge" style="color:var(--primary-color); margin-left:0.25rem;">2.1 / 5.0</strong>
+                    </div>
+
+                    <button type="button" class="quick-btn edit-mode-toggle-btn" id="editModeToggleBtn" onclick="toggleEditMode()" title="Toggle Visual Content Editing Mode">
+                        <span id="editModeIcon">✏️</span>
+                        <span id="editModeText">Edit Content</span>
+                    </button>
+
+                    <button type="button" class="quick-btn" id="saveEditsTopBtn" onclick="saveVisualEdits()" style="display: none; background: #38a169 !important; color: #ffffff !important; border-color: #2f855a !important; font-weight: 700;" title="Save all text changes to ai-gov.js">
+                        <span>💾</span>
+                        <span>Save to File</span>
+                    </button>
+
+                    <button type="button" class="sow-trigger-btn" onclick="openSowModal()">
+                        <span>📄 Statement of Work</span>
+                        <span class="sow-count-badge" id="sowCountBadge">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="chevron-stepper" id="chevronStepper" aria-label="AI Governance Lifecycle Steps">
+                <!-- Dynamically populated by ai-gov.js -->
+            </nav>
+        </div>
+    </section>
+
+    <!-- Detailed Drilldown & Substeps Accordion (Primary active view) -->
+    <main class="drilldown-view-section" id="drilldownViewContainer">
+        <!-- Dynamically rendered phase content from ai-gov.js -->
+    </main>
+
+    <!-- Statement of Work (SOW) Generator Modal -->
+    <div class="sow-modal-overlay" id="sowModal" role="dialog" aria-modal="true" aria-labelledby="sowModalTitle">
+        <div class="sow-modal-card">
+            <div class="sow-modal-header">
+                <div class="sow-header-info">
+                    <h2 id="sowModalTitle">AI Governance Statement of Work (SOW)</h2>
+                    <span class="sow-header-subtitle">Executive Proposal &amp; Implementation Scope Specification</span>
+                </div>
+                <button type="button" class="close-modal-btn" onclick="closeSowModal()" aria-label="Close Statement of Work modal">✕</button>
+            </div>
+
+            <div class="sow-modal-body" id="sowModalBody">
+                <!-- Dynamically compiled by ai-gov.js -->
+            </div>
+
+            <div class="sow-modal-footer">
+                <div class="sow-footer-left">
+                    <button type="button" class="quick-btn" onclick="copySowToClipboard()">
+                        <span>📋 Copy SOW (Markdown)</span>
+                    </button>
+                    <button type="button" class="quick-btn" onclick="printSow()">
+                        <span>🖨️ Print / Save as PDF</span>
+                    </button>
+                    <span class="copy-success-toast" id="copyToast">✓ Copied to clipboard!</span>
+                </div>
+
+                <button type="button" class="nav-step-btn" onclick="closeSowModal()">
+                    Close &amp; Return to Guide
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="sp-footer">
+        <p>&copy; 2026 Enterprise AI Governance Portfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- In-Page Visual Edit Floating Action Bar -->
+    <div class="edit-mode-floating-bar" id="editFloatingBar" style="display: none;">
+        <div class="edit-bar-status">
+            <span class="edit-pulse-dot"></span>
+            <span id="editStatusMessage">✏️ Visual Edit Mode — Click text to edit • Press Enter or "+ Add Bullet Point" to add items</span>
+        </div>
+        <div class="edit-bar-actions">
+            <button type="button" class="edit-bar-btn btn-save" onclick="saveVisualEdits()" title="Save all text changes to ai-gov.js">
+                <span>💾 Save to File</span>
+            </button>
+            <button type="button" class="edit-bar-btn btn-lock" onclick="lockEditorAccess()" title="Lock Editor (Require password again)">
+                <span>🔒 Lock Editor</span>
+            </button>
+            <button type="button" class="edit-bar-btn btn-discard" onclick="toggleEditMode()" title="Exit Edit Mode">
+                <span>✕ Exit Edit Mode</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Save Notification Toast -->
+    <div class="edit-save-toast" id="editSaveToast">
+        <span>✓</span>
+        <span id="editSaveToastText">Saved successfully to ai-gov.js!</span>
+    </div>
+
+    <!-- Application Script -->
+    <script src="ai-gov.js"></script>
+</body>
+
+</html>
