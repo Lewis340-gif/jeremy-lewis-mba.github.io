@@ -1219,7 +1219,7 @@ function renderPhaseDrilldown(phaseId) {
             <!-- Maturity Rater -->
             <div class="maturity-rater-container">
                 <div class="maturity-rater-header">
-                    <h4>Score Organization's Maturity for Phase ${phase.id}: ${phase.name}</h4>
+                    <h4>Score your organization's current level of maturity for Phase ${phase.id}: ${phase.name}</h4>
                     <span style="font-size:0.85rem; color:#718096;">Click a level to benchmark current organizational capabilities</span>
                 </div>
                 <div class="maturity-levels-bar">
