@@ -1216,17 +1216,6 @@ function renderPhaseDrilldown(phaseId) {
                 </div>
             </div>
 
-            <div class="substeps-section">
-                <div class="substeps-section-title">
-                    <span>Granular Substeps &amp; Action Deliverables</span>
-                    <span class="substeps-count-pill">${phase.substeps.length} Substeps</span>
-                </div>
-
-                <div class="substeps-accordion-list">
-                    ${substepsHtml}
-                </div>
-            </div>
-
             <!-- Maturity Rater -->
             <div class="maturity-rater-container">
                 <div class="maturity-rater-header">
@@ -1235,6 +1224,17 @@ function renderPhaseDrilldown(phaseId) {
                 </div>
                 <div class="maturity-levels-bar">
                     ${maturityOptionsHtml}
+                </div>
+            </div>
+
+            <div class="substeps-section">
+                <div class="substeps-section-title">
+                    <span>Granular Substeps &amp; Action Deliverables</span>
+                    <span class="substeps-count-pill">${phase.substeps.length} Substeps</span>
+                </div>
+
+                <div class="substeps-accordion-list">
+                    ${substepsHtml}
                 </div>
             </div>
 
