@@ -7,6 +7,14 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="ai-gov-style.css">
+    <script>
+        (function() {
+            if (sessionStorage.getItem('ai_gov_auth') !== 'granted') {
+                sessionStorage.setItem('ai_gov_redirect_after_login', 'ai-gov-alignment.html');
+                window.location.replace('ai-gov-login.html');
+            }
+        })();
+    </script>
 </head>
 
 <body class="lifecycle-app">

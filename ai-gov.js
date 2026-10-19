@@ -7,8 +7,19 @@
 // 1. Authentication & Session Gate
 // ==========================================================================
 
-const VALID_PASSWORDS = ['governance2026', 'aigov', 'aigov2026', 'jeremy2026'];
+const VALID_PASSWORDS = ['mabbattista@brooksource.com', 'ai26!', 'AI26!'];
 const VALID_EDITOR_PASSWORDS = ['editor2026', 'edit2026', 'governance-edit', 'jeremy2026-admin'];
+
+// Immediate authentication guard for protected governance pages
+(function() {
+    const page = window.location.pathname.split('/').pop();
+    if (page === 'ai-gov-lifecycle.html' || page === 'ai-gov-alignment.html') {
+        if (sessionStorage.getItem('ai_gov_auth') !== 'granted') {
+            sessionStorage.setItem('ai_gov_redirect_after_login', page);
+            window.location.replace('ai-gov-login.html');
+        }
+    }
+})();
 
 function handleLogin(event) {
     if (event) event.preventDefault();
@@ -16,14 +27,23 @@ function handleLogin(event) {
     const errorMsg = document.getElementById('loginError');
     if (!input) return;
 
-    const val = input.value.trim().toLowerCase();
-    if (VALID_PASSWORDS.includes(val)) {
+    const rawVal = input.value.trim();
+    const lowerVal = rawVal.toLowerCase();
+
+    // Verify authorized credentials
+    const isAuthorized = VALID_PASSWORDS.some(pwd => pwd === rawVal || pwd.toLowerCase() === lowerVal);
+
+    if (isAuthorized) {
         sessionStorage.setItem('ai_gov_auth', 'granted');
         if (errorMsg) errorMsg.style.display = 'none';
-        window.location.href = 'ai-gov-lifecycle.html';
+
+        // Redirect to intended target page if stored, otherwise default to lifecycle tool
+        const target = sessionStorage.getItem('ai_gov_redirect_after_login') || 'ai-gov-lifecycle.html';
+        sessionStorage.removeItem('ai_gov_redirect_after_login');
+        window.location.href = target;
     } else {
         if (errorMsg) {
-            errorMsg.textContent = 'Invalid access code. Please verify your credentials or use the demonstration code below.';
+            errorMsg.textContent = 'Invalid access password. Please verify your credentials or contact Jeremy Lewis for authorization.';
             errorMsg.style.display = 'block';
         }
         input.focus();
@@ -46,11 +66,13 @@ function togglePasswordVisibility() {
 }
 
 function checkAuth() {
-    // If running in development or authenticated, allow access
-    const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
     const isAuth = sessionStorage.getItem('ai_gov_auth');
-    if (!isLocalDev && isAuth !== 'granted') {
-        window.location.href = 'ai-gov-login.html';
+    if (isAuth !== 'granted') {
+        const currentPage = window.location.pathname.split('/').pop() || 'ai-gov-lifecycle.html';
+        if (currentPage && currentPage !== 'ai-gov-login.html') {
+            sessionStorage.setItem('ai_gov_redirect_after_login', currentPage);
+        }
+        window.location.replace('ai-gov-login.html');
     }
 }
 
@@ -1008,6 +1030,11 @@ let selectedSowItems = new Set([
 
 // Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
+    // Check auth on protected governance pages
+    if (document.getElementById('lifecycleAppRoot') || document.querySelector('.alignment-page-container')) {
+        checkAuth();
+    }
+
     // Check if on lifecycle page
     if (document.getElementById('lifecycleAppRoot')) {
         checkAuth();
