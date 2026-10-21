@@ -913,7 +913,7 @@ const LIFECYCLE_STAGES = [
         "slug": "post-deployment",
         "name": "Post-Deployment Reviews",
         "shortName": "8. Post-Deployment",
-        "hasGate": true,
+        "hasGate": false,
         "gateName": "Annual Governance Audit",
         "summary": "Long-term governance stewardship, annual impact audits, regulatory compliance certification, and structured end-of-life retirement planning.",
         "objective": "Ensure enduring compliance with evolving standards (NIST AI RMF, ISO 42001, EU AI Act) and plan graceful decommissioning.",
@@ -935,7 +935,7 @@ const LIFECYCLE_STAGES = [
             {
                 "id": "8-2",
                 "name": "AI Committee Updates",
-                "tag": "Committee Gate",
+                "tag": "Governance",
                 "tasks": [
                     "Deliver an annual State of AI to the AI Governance Committee.  Include audit findings, recommendations, and mitigation efforts to known threats.",
                     "Review cumulative risk register and updated threat assessments.",
